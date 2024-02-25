@@ -1,0 +1,16 @@
+.error-message {
+  display: none;
+  color: red;
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.is-valid {
+  border-color: green;
+}
+
+.is-invalid + .error-message {
+  display: block;
+}
