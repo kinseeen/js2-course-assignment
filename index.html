@@ -7,34 +7,62 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center">Login</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email"
-                            pattern="[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)" required>
-                        <small class="form-text text-muted error-message">Please enter a valid email address with @noroff.no or
-                            @stud.noroff.no </small>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<body class="mainBody">
+
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account? <a href="#" class="custom-href"> Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#" class="custom-href">Forgot your password?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 </body>
