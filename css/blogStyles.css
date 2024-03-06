@@ -1,0 +1,13 @@
+.btn {
+    margin:10px;
+}
+
+.btn:hover {
+    background-color: #383838;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.col {
+    padding:20px;
+}
