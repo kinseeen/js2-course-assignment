@@ -41,6 +41,12 @@ function loginUser(email, password) {
     });
 }
 
-function logoutUser() {
-  
+function logoutUser() {}
+
+function storeToken(token) {
+  localStorage.setItem("token", token);
+}
+
+function getToken() {
+  return localStorage.getItem("token");
 }

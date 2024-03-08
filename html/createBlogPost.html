@@ -13,7 +13,7 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="../script/blogDetails.mjs" type="module"></script>
+    <script src="../script/createBlogPost.js" type="module"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -53,9 +53,25 @@
             </form>
         </div>
     </nav>
-    <button class="btn btn-secondary" id="deleteButton" title="Delete blog post"><i class="fas fa-trash-alt"></i></button>
-    <div class="container" id="blogPost">
-        
+
+    
+    <div class="container" id="createBlogPost">
+        <h1 style="padding-top: 20px;">Create Post</h1>
+        <form id="CreatePostForm">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title">
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <textarea class="form-control" id="body" rows="3" placeholder="Enter body"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" placeholder="Enter image URL">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 
