@@ -1,13 +1,20 @@
 .btn {
-    margin:10px;
+  margin: 10px;
 }
 
 .btn:hover {
-    background-color: #383838;
-    color: #ffffff;
-    transform: scale(1.1);
+  background-color: #383838;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .col {
-    padding:20px;
+  padding: 20px;
+}
+
+.blogPostButton {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.3)!important;
+ margin: 30px;
+ align-items: center;
+ 
 }

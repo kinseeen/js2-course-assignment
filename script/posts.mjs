@@ -1,50 +1,29 @@
-import {post,get} from "./http-service.mjs"
+import { post, get, del } from "./http-service.mjs";
 
+async function getAllPosts() {
+  const endpoint = "social/posts";
 
-function getAllPosts() {
-    const endpoint = "/social/posts";
-
-    get(endpoint)
-    .then((response) => {
-        console.log(response);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-} 
-
-function getPost(id) {
-    const endpoint = "/social/posts/" + id
-
-    get(endpoint)
-    .then((response)=> {
-        console.log(response)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+  var response = await get(endpoint);
+  return response;
 }
 
-function createPost(title, body, mediaUrl) {
-    const endpoint = "/social/posts"
+async function getPost(id) {
+  const endpoint = "social/posts/" + id;
 
-    const requestBody = {
-        "title": title,
-        "body": body,
-        "media": {
-            "url" : mediaUrl
-        }
-    }
+  var response = await get(endpoint);
+  return response;
+}
 
-   post(endpoint, requestBody)
-   .then((response) => {
-
-   })
-   .catch((error) => {
-
-   }); 
+async function deletePost(id) {
+  const endpoint = "social/posts/" + id;
+  return await del(endpoint);
+}
 
 
+async function createPost(requestBody) {
+  const endpoint = "social/posts";
+  return await post(endpoint, requestBody);
 
 }
 
+export { getAllPosts, getPost, createPost, deletePost };
