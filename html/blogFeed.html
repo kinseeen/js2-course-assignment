@@ -31,23 +31,20 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/html/blogFeed.html">Feed</a>
+                        
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Profile </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li> <a class="dropdown-item" href="/html/profile.html"> See profile </a></li>
-                            <li> <a class="dropdown-item" href="/html/profile.html"> Edit profile </a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            <li>
-                            <li><a class="dropdown-item" href="/index.html"> Log out </a> </li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/profile.html">Profile</a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" id="logoutButton">Logout</a>
+                        
                     </li>
                 </ul>
             </div>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex align-items-center" id="searchForm">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
                 <button class="btn btn-outline-success" type="submit"> Search </button>
             </form>
         </div>
@@ -57,6 +54,10 @@
 
         <a href="/html/createBlogPost.html">
             <button class="btn blogPostButton"> Create a post </button></a>
+            <form class="d-flex align-items-center" id="filterForm">
+                <input class="form-control me-2" type="search" placeholder="Filter by tag" aria-label="Search" id="filterInput">
+                <button class="btn btn-outline-success" type="submit"> Filter </button>
+            </form>
         
 
 
