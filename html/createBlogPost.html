@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"> Blog </a>
@@ -33,31 +33,25 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/html/blogFeed.html">Feed</a>
+
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"> Profile </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li> <a class="dropdown-item" href="/html/profile.html"> See profile </a></li>
-                            <li> <a class="dropdown-item" href="/html/profile.html"> Edit profile </a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            <li>
-                            <li><a class="dropdown-item" href="/index.html"> Log out </a> </li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/html/profile.html">Profile</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" id="logoutButton">Logout</a>
+
                     </li>
                 </ul>
             </div>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"> Search </button>
-            </form>
+
         </div>
     </nav>
 
-    
+
     <div class="container" id="createBlogPost">
-        <h1 style="padding-top: 20px;">Create Post</h1>
+        <h1 style="padding-top: 20px;" id="postType">Create Post</h1>
         <form id="CreatePostForm">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -71,7 +65,8 @@
                 <label for="image" class="form-label">Image</label>
                 <input type="text" class="form-control" id="image" placeholder="Enter image URL">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" class="btn btn-primary" id="submitType">Submit</button>
         </form>
     </div>
 

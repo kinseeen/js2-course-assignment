@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./script/login.mjs" type="module"></script>
+    <script src="../script/registration.mjs" type="module"></script>
 </head>
 
 
@@ -22,37 +22,57 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Sign In</h3>
+                    <h3>Register User</h3>
                     <div class="d-flex justify-content-end social_icon">
-                    
+
                     </div>
                 </div>
-                <div class="card-body">
-                    <form id="loginForm">
+                <div class="card-body" >
+                    <form id="registrationForm">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
+                            <input type="text" class="form-control" placeholder="name" id="nameInput">
+
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                            </div>
                             <input type="text" class="form-control" placeholder="email" id="emailInput">
+
+                        </div>
+                        <div id="emailValidationError" style="color: red;"></div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="password" id="passwordInput">
 
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password" id="passwordInput">
+                            <input type="password" class="form-control" placeholder="confirm password" id="confirmPasswordInput">
+
                         </div>
-                     
+                        <div id="errorMessage" style="color: red;"></div>
+                        
+
                         <div class="form-group">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
+                            
+                            <input type="submit" value="Register" class="btn float-right login_btn">
                         </div>
                     </form>
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account? <a href="./html/registration.html" class="custom-href"> Sign Up</a>
+                        <a href="../index.html" class="custom-href">Back to login</a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

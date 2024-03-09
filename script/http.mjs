@@ -3,7 +3,7 @@ const apiKey = "10e3a9e9-f8ec-4711-b994-9c80bf37438c";
 
 /**
  * Performs a GET request to the specified URL.
- * 
+ *
  * @param {string} url - The URL to send the GET request to.
  * @param {boolean} [requireAuth=true] - Indicates whether the request requires authentication. Default is true.
  * @returns {Promise<any>} - A promise that resolves to the response data as JSON.
@@ -34,16 +34,20 @@ async function get(url, requireAuth = true) {
 /**
  * Sends a PUT request to the specified URL with the provided data.
  * @param {string} url - The URL to send the PUT request to.
- * @param {Object} data - The data to be sent in the request body.
- * @returns {Promise<Object>} - A promise that resolves to the response data.
+ * @param {Object} data - The data to send in the request body.
+ * @param {boolean} [requireAuth=true] - Indicates whether the request requires authentication. Default is true.
+ * @returns {Promise<Object>} - A promise that resolves to the response data from the server.
  * @throws {Error} - If the PUT request fails.
  */
-async function put(url, data) {
+async function put(url, data, requireAuth = true) {
+  const token = authorize(requireAuth);
   try {
     const response = await fetch(baseUrl + url, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+        "X-Noroff-API-Key": apiKey,
       },
       body: JSON.stringify(data),
     });
@@ -90,7 +94,7 @@ async function post(url, data, requireAuth = true) {
 
 /**
  * Sends a DELETE request to the specified URL.
- * 
+ *
  * @param {string} url - The URL to send the DELETE request to.
  * @param {boolean} [requireAuth=true] - Indicates whether the request requires authentication. Defaults to true.
  * @returns {Promise<boolean|Object>} - A promise that resolves to true if the request is successful, or an object representing the response data if the request fails.
@@ -119,7 +123,7 @@ async function del(url, requireAuth = true) {
 
 /**
  * Authorizes the user by checking if a token is saved in the local storage.
- * 
+ *
  * @param {boolean} requireAuth - Indicates whether authorization is required.
  * @returns {string} - The token if authorization is required and a token is saved in the local storage.
  * @throws {Error} - If authorization is required but no token is saved in the local storage.

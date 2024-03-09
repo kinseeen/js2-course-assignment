@@ -1,18 +1,31 @@
 import { getPost, deletePost } from "./posts.mjs";
+import { logoutUser } from "./authentication.mjs";
 
 const blogPostContainer = document.getElementById("blogPost");
 var deleteButton = document.getElementById("deleteButton");
+var editButton = document.getElementById("editButton");
+var logoutButton = document.getElementById("logoutButton");
 const postBlogId = new URLSearchParams(window.location.search).get(
   "blogPostId"
 );
+var title;
+var body;
+var tags;
+var comments;
+var mediaUrl;
+
+logoutButton.addEventListener("click", function () {
+  logoutUser();
+});
+
+
+editButton.addEventListener("click", function () {
+  
+
+  window.location.href = "/html/createBlogPost.html?blogPostId=" + postBlogId + "&mode=edit";
+});
 
 deleteButton.addEventListener("click", async function () {
-  /**
-   * Deletes a blog post.
-   *
-   * @param {number} postBlogId - The ID of the blog post to delete.
-   * @returns {Promise} - A promise that resolves with the response from the server.
-   */
   var response = await deletePost(postBlogId);
   if (response.status == "Forbidden") {
     Swal.fire({
@@ -31,18 +44,13 @@ window.onload = function () {
   getPostDetails(postBlogId);
 };
 
-/**
- * Retrieves the details of a blog post based on the given ID.
- * @param {number} id - The ID of the blog post.
- * @returns {Promise<void>} - A promise that resolves when the blog post details are retrieved and displayed.
- */
 async function getPostDetails(id) {
   var post = await getPost(id);
-  var title = post.data.title;
-  var body = post.data.body;
-  var tags = post.data.tags;
-  var comments = post.data._count.comments;
-  var mediaUrl;
+   title = post.data.title;
+   body = post.data.body;
+   tags = post.data.tags;
+   comments = post.data._count.comments;
+   mediaUrl;
   if (post.data.media == null) {
     mediaUrl = "/images/14731032136_f4a3564dd5_c.jpg";
   } else {

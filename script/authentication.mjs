@@ -1,10 +1,10 @@
-import { post } from "./http-service.mjs";
+import { post } from "./http.mjs";
 
-document.getElementById("loginButton").addEventListener("click", () => {
+/* document.getElementById("loginButton").addEventListener("click", () => {
   const email = document.getElementById("emailInput").value;
   const password = document.getElementById("passwordInput").value;
   loginUser(email, password);
-});
+}); */
 
 /**
  * Registers a new user.
@@ -14,21 +14,15 @@ document.getElementById("loginButton").addEventListener("click", () => {
  * @param {string} password - The password of the user.
  * @returns {Promise} A promise that resolves with the response from the server.
  */
-function registerUser(username, email, password) {
-  const endpoint = "/auth/register";
+async function registerUser(username, email, password) {
+  const endpoint = "auth/register";
   const requestBody = {
     name: username,
     email: email,
     password: password,
   };
 
-  post(endpoint, requestBody)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  return await post(endpoint, requestBody, false);
 }
 
 /**
@@ -36,25 +30,27 @@ function registerUser(username, email, password) {
  * @param {string} email - The user's email address.
  * @param {string} password - The user's password.
  */
-function loginUser(email, password) {
+async function loginUser(email, password) {
   const endpoint = "auth/login";
   const requestBody = {
     email: email,
     password: password,
   };
-  console.log(requestBody);
-  post(endpoint, requestBody)
-    .then((response) => {
-      if (response.data.accessToken) {
-        window.location.href = "./html/profile.html";
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+
+  try {
+    const response = await post(endpoint, requestBody, false);
+    storeToken(response.data.accessToken);
+    window.location.href = "/html/blogfeed.html";
+  } catch (error) {
+    console.error("Login failed:", error);
+  }
+ 
 }
 
-function logoutUser() {}
+function logoutUser() {
+  clearToken();
+  window.location.href = "/index.html";
+}
 
 /**
  * Stores the provided token in the browser's local storage.
@@ -70,3 +66,9 @@ function storeToken(token) {
 function getToken() {
   return localStorage.getItem("token");
 }
+
+function clearToken() {
+  localStorage.removeItem("token");
+}
+
+export { registerUser, loginUser, logoutUser };
