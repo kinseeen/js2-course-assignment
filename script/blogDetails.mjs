@@ -7,6 +7,12 @@ const postBlogId = new URLSearchParams(window.location.search).get(
 );
 
 deleteButton.addEventListener("click", async function () {
+  /**
+   * Deletes a blog post.
+   *
+   * @param {number} postBlogId - The ID of the blog post to delete.
+   * @returns {Promise} - A promise that resolves with the response from the server.
+   */
   var response = await deletePost(postBlogId);
   if (response.status == "Forbidden") {
     Swal.fire({
@@ -25,6 +31,11 @@ window.onload = function () {
   getPostDetails(postBlogId);
 };
 
+/**
+ * Retrieves the details of a blog post based on the given ID.
+ * @param {number} id - The ID of the blog post.
+ * @returns {Promise<void>} - A promise that resolves when the blog post details are retrieved and displayed.
+ */
 async function getPostDetails(id) {
   var post = await getPost(id);
   var title = post.data.title;
