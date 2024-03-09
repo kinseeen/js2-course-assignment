@@ -6,26 +6,22 @@ const logoutButton = document.getElementById("logoutButton");
 const searchForm = document.getElementById("searchForm");
 const filterForm = document.getElementById("filterForm");
 
-
 searchForm.addEventListener("submit", async function (event) {
   event.preventDefault();
   var searchTerm = searchForm.querySelector("#searchInput").value;
   console.log(searchTerm);
   var response = await searchPosts(searchTerm);
-  
-  
-  updateView(response);
 
+  updateView(response);
 });
 
-filterForm.addEventListener("submit", async function (event) { 
+filterForm.addEventListener("submit", async function (event) {
   event.preventDefault();
   var tag = filterForm.querySelector("#filterInput").value;
   console.log(tag);
   var response = await getFilteredPosts(tag);
   updateView(response);
 });
-
 
 logoutButton.addEventListener("click", function () {
   logoutUser();
@@ -50,9 +46,11 @@ function updateView(posts) {
     } else {
       blogImage = element.media.url;
     }
+    /* const postElement = document.createElement("div");
+    postElement.className = "col"; */
     var blogPost = `
-    
-              <div class="col">
+
+              
                   <div class="card shadow-sm">
                       <img src="${blogImage}" class="bd-placeholder-img card-img-top" width="100%"
                           height="225">
@@ -62,14 +60,15 @@ function updateView(posts) {
                               <div class="btn-group">
                                   <a href="/html/blogDetails.html?blogPostId=${postId}" button type="button"
                                       class="btn btn-sm btn-outline-secondary"> View post </a>
-                                  <button type="button" class="btn btn-sm btn-outline-secondary"> Comment on post
-                                  </button>
+                                 
                               </div>
                           </div>
                       </div>
-                  </div>
+                  
               
     `;
     blogFeedContainer.innerHTML += blogPost;
+    //blogFeedContainer.appendChild(blogPost);
+    
   });
 }

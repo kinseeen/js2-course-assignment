@@ -27,7 +27,7 @@ registrationForm.addEventListener('submit', async function(event){
     }
     var response = await registerUser(username, email, password);
     if (response.data) {
-        window.location.href = "./index.html";
+        window.location.href = "../index.html";
       } else {
         console.log("Registration failed");
       }
